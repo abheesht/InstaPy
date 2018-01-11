@@ -1,7 +1,7 @@
 from instapy import InstaPy
 
-insta_username = ''
-insta_password = ''
+insta_username = 'abheeshtstark'
+insta_password = 'qwerty098'
 
 # set headless_browser=True if you want to run InstaPy on a server
 try:
@@ -11,14 +11,22 @@ try:
     session.login()
 
     # settings
-    session.set_upper_follower_count(limit=2500)
-    session.set_do_comment(True, percentage=10)
-    session.set_comments(['aMEIzing!', 'So much fun!!', 'Nicey!'])
-    session.set_dont_include(['friend1', 'friend2', 'friend3'])
-    session.set_dont_like(['pizza', 'girl'])
+
+session.set_upper_follower_count(limit = 250)
+session.set_lower_follower_count(limit = 10)
+session.like_by_tags(['#marvel','#runaways','#avengers','#thor','iamfrankie','spacex','space'], amount=500)
+
+session.set_user_interact(amount=5, random=True, percentage=50, media='Photo')
+
+
+session.set_do_comment(enabled=True, percentage=25)
+session.set_comments(['Awesome', 'Really Cool', 'I like your stuff'])
+# you can also set comments for specific media types (Photo / Video)
+session.set_comments(['Nice shot!'], media='Photo')
+session.set_comments(['Great Video!'], media='Video'
 
     # actions
-    session.like_by_tags(['natgeo'], amount=1)
+ 
 
 finally:
     # end the bot session
